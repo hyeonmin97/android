@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LatteFactory</string>
+    <string name="btn">20210522_14_33</string>
+    <string name="btn2">%s</string>
+    <string name="btn3">20210522_14_37</string>
+    <string name="btn4">20210522_14_40</string>
+    <string name="btn5">20210522_14_44</string>
+    <string name="btn6">20210522_14_46</string>
+    <string name="btn7">20210522_14_52</string>
+    <string name="btn8">20210522_15_00</string>
+    <string name="btn9">20210522_15_05</string>
+    <string name="btn10">20210522_15_10</string>
+</resources>
