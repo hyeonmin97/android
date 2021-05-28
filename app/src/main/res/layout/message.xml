@@ -21,6 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
@@ -42,28 +43,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="를 눌러주시고 움직일 수 없을 정도로 부상을 입으신 경우" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text=" '예'"
+                android:textColor="#049b50"
+                android:textSize="20dp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="를 눌러주시고 움직일 수 없을 정도로 부상을 입으신 경우" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text=" '예'"
-            android:textColor="#049b50"
-            android:textSize="20dp" />
+            android:text=" 버튼을 눌러주세요." />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text=" 버튼을 눌러주세요." />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -94,6 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:gravity="center"
         android:text="* 일정시간이 지났는데도 어떠한 버튼을 누르지 않으신다면
                         긴급한 상황으로 판단해 자동으로 긴급 연락을 합니다."
         android:textColor="#049b50" />
