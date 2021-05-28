@@ -23,6 +23,8 @@ public class MainActivity extends Activity {
         blbx = findViewById(R.id.blbx);
         back = findViewById(R.id.back);
 
+        //서비스 시작
+        startService(new Intent(MainActivity.this, tcp.class));
 
         blbx.setOnClickListener((v) -> {
             //인텐트 선언 -> 현재 액티비티, 넘어갈 액티비티
