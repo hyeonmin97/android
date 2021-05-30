@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -27,14 +28,13 @@ public class tcp extends Service {
         thread.start();
         Log.d("onCreate", "in onCreate");
         super.onCreate();
-
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         try {
             button = intent.getStringExtra("button");
-
             OutputPrint thread = new OutputPrint();
             thread.start();
 
@@ -47,14 +47,7 @@ public class tcp extends Service {
 
     @Override
     public void onDestroy() {
-        try {
-            socket.close();
-            button="btnN";
-            OutputPrint thread = new OutputPrint();
-            thread.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        super.onDestroy();
     }
 
     @Nullable
@@ -62,23 +55,29 @@ public class tcp extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-
+/*
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        Toast.makeText(this, "onTaskRemoved ", Toast.LENGTH_SHORT).show();
+        stopSelf();
+    }
+*/
     class ServerThread extends Thread {
 
         public void run(){
-
-
             try{
                 int port = 9001;
                 ServerSocket server = new ServerSocket(port);
                 while(true){
 
+                    Log.d("wating", "wating accept");
                     socket = server.accept();
-                    Log.d("socket", String.valueOf(socket));
+                    Log.d("socket.accept", String.valueOf(socket));
                     InputStream input = socket.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                     String readValue = reader.readLine();
                     if(readValue != null){
+                        Log.d("readValue","in readValue()");
                         if(readValue.equals("fallen")){//넘어졌을때
                             Intent intent = new Intent(getApplicationContext(), message.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
@@ -89,11 +88,9 @@ public class tcp extends Service {
                         }
                     }
 
-
                 }
             } catch (BindException e) {
                 e.printStackTrace();
-
                 Log.d("BindException", "BindException");
             } catch (IOException e) {
                 e.printStackTrace();

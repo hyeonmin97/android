@@ -42,12 +42,11 @@ public class message extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() {//메시지 화면에서 뒤로가기 누를때 꺼지게
         //Toast.makeText(this, "Back button pressed.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), tcp.class);
         intent.putExtra("button", "btnN");
-        startActivity(intent);
-        finish();
-        //super.onBackPressed();
+        startService(intent);
+        super.onBackPressed();
     }
 }
